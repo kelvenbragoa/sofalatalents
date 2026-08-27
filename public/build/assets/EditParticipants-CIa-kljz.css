@@ -1,0 +1,1 @@
+.grid[data-v-1b581f36]{display:grid}.grid-cols-1[data-v-1b581f36]{grid-template-columns:repeat(1,minmax(0,1fr))}@media (min-width: 1024px){.lg\:grid-cols-2[data-v-1b581f36]{grid-template-columns:repeat(2,minmax(0,1fr))}}.col-span-full[data-v-1b581f36]{grid-column:1 / -1}.gap-6[data-v-1b581f36]{gap:1.5rem}
