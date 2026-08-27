@@ -48,7 +48,7 @@ const goHome = () => {
 
 const shareVote = () => {
   if (participant.value) {
-    const text = `Acabei de votar na ${participant.value.stage_name || participant.value.name} no Reality Show Estrelas do LIV! 🌟`
+    const text = `Acabei de votar na ${participant.value.stage_name || participant.value.name} no Reality Show Sofala Talents! 🌟`
     const url = window.location.origin
     
     if (navigator.share) {
@@ -106,7 +106,7 @@ const shareVote = () => {
                 <div class="success-content">
                   <h1 class="success-title">Pagamento e Voto Confirmados! 🎉</h1>
                   <p class="success-subtitle">
-                    Obrigado por apoiar financeiramente o Reality Show Estrelas do LIV
+                    Obrigado por apoiar financeiramente o Reality Show Sofala Talents
                   </p>
                   
                   <!-- Participant Info -->
@@ -250,7 +250,7 @@ const shareVote = () => {
       <div class="container copyright text-center mt-4">
         <p>© <span>Copyright</span> <strong class="px-1 sitename">VotaAqui</strong> <span>Todos os direitos reservados</span></p>
         <div class="credits">
-          Desenvolvido com ❤️ para o Reality Show Estrelas do LIV
+          Desenvolvido com ❤️ para o Reality Show Sofala Talents
         </div>
       </div>
     </footer>

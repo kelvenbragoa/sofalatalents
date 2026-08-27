@@ -222,7 +222,7 @@
       <div class="container copyright text-center mt-4">
         <p>© <span>Copyright</span> <strong class="px-1 sitename">VotaAqui</strong> <span>Todos os direitos reservados</span></p>
         <div class="credits">
-          Desenvolvido com ❤️ para o Reality Show Estrelas do LIV
+          Desenvolvido com ❤️ para o Reality Show Sofala Talents
         </div>
       </div>
     </footer>

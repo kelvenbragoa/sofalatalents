@@ -121,7 +121,7 @@ class PaymentController extends Controller
             $string = substr(str_shuffle(str_repeat($x='0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ', ceil(3/strlen($x)) )),1,4);
             $vote = PublicVote::orderBy('id','desc')->first();
             $add = $vote->id ?? 0 + 1;
-            $ref = 'LIV'.$add.'T'.$string.$add;
+            $ref = 'SOF'.$add.'T'.$string.$add;
 
     
 

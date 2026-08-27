@@ -17,7 +17,7 @@ class EpisodeSeeder extends Seeder
             [
                 'episode_number' => 1,
                 'title' => 'Estreia - Apresentação dos Participantes',
-                'description' => 'Primeiro episódio onde conhecemos todos os participantes do Reality Show Estrelas do LIV.',
+                'description' => 'Primeiro episódio onde conhecemos todos os participantes do Reality Show Sofala Talents.',
                 'episode_type' => 'presentation',
                 'air_date' => Carbon::parse('2025-09-01 20:00:00'),
                 'eliminations' => 0,

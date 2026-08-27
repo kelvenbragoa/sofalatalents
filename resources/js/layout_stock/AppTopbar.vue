@@ -49,7 +49,7 @@ const logout = () => {
                     </g>
                 </svg>
 
-                <span>Liv</span>
+                <span>Sofala Talents</span>
             </router-link>
         </div>
 

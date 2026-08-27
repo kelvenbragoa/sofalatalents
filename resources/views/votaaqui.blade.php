@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>VotaAqui - O teu voto Online</title>
-    <meta name="description" content="Vote no teu participante favorito do Reality Show Estrelas do LIV">
-    <meta name="keywords" content="votação, reality show, estrelas do liv, participantes, voto online">
+    <meta name="description" content="Vote no teu participante favorito do Reality Show Sofala Talents">
+    <meta name="keywords" content="votação, reality show, Sofala Talents, participantes, voto online">
 
     <!-- Favicons -->
     <link href="{{asset('votaaqui/assets/img/favicon.png')}}" rel="icon">

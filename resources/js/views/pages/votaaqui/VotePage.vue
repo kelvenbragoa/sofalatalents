@@ -49,7 +49,7 @@
                   <!-- Event Info -->
                   <div class="event-info mb-5">
                     
-                    <h3>Reality Show - Estrelas do LIV</h3>
+                    <h3>Reality Show - Sofala Talents</h3>
                     <h4 v-if="episode"> <strong>{{episode.title}}</strong></h4>
                     <h4 v-else>Nenhuma gala disponivel</h4>
                     <div class="event-details">

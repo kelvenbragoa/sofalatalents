@@ -87,7 +87,7 @@
 
             <div class="ticket-form-wrapper">
               <div class="event-info mb-5">
-                <h3>Reality Show - Estrelas do Liv</h3>
+                <h3>Reality Show - Sofala Talents</h3>
                 <div class="event-details">
                   <div class="event-meta">
                     <span><i class="bi bi-calendar-event"></i> March 15-17, 2026</span>
@@ -107,7 +107,7 @@
                       <div class="ticket-name">Joao Mario</div>
                       <div class="ticket-description">Vote no teu participante favorito!</div>
                       <div class="ticket-benefits">
-                        <span>✓ Liv Beira</span>
+                        <span>✓ Beira</span>
                         <span>✓ Sofala</span>
                         <span>✓ Moçambique</span>
                       </div>

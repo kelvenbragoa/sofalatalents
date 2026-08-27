@@ -181,7 +181,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>LIV</title>
+    <title>Sofala Talents</title>
     {{-- <!-- Favicons -->
     <link href="{{asset('template/assets/img/favicon.png')}}" rel="icon">
     <link href="{{asset('template/assets/img/apple-touch-icon.png')}}" rel="apple-touch-icon">
