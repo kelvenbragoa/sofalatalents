@@ -302,9 +302,9 @@
             </router-link>
             <div class="footer-contact pt-3">
               <p>Rua Principal, 123</p>
-              <p>Beira, Sofala, Moçambique</p>
-              <p class="mt-3"><strong>Telefone:</strong> <span>+258 123 456 789</span></p>
-              <p><strong>Email:</strong> <span>info@votaaqui.com</span></p>
+              <p>Sofala, Moçambique</p>
+              <p class="mt-3"><strong>Telefone:</strong> <span>+258 83 405 6545</span></p>
+              <p><strong>Email:</strong> <span>fernandomassasse158@gmail.com</span></p>
             </div>
           </div>
           

@@ -107,7 +107,7 @@
                       <div class="ticket-name">Joao Mario</div>
                       <div class="ticket-description">Vote no teu participante favorito!</div>
                       <div class="ticket-benefits">
-                        <span>✓ Beira</span>
+                        <span>✓ Sofala, Moçambique</span>
                         <span>✓ Sofala</span>
                         <span>✓ Moçambique</span>
                       </div>
