@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\DB;
 
 class StaffVoteController extends Controller
 {
-    public const UNIT_PRICE = 50.00;
+    public const UNIT_PRICE = 30.00;
 
     public function participants()
     {

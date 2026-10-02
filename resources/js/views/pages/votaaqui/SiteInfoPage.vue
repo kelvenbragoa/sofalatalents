@@ -25,7 +25,7 @@ const pages = {
       },
       {
         title: 'O valor do voto',
-        text: 'Cada voto custa 50 meticais. Na semana, o voto é feito aqui. Na noite do espectáculo, o staff também pode registar votos da plateia e do bar, sempre com o mesmo valor.',
+        text: 'Cada voto custa 30 meticais. Na semana, o voto é feito aqui. Na noite do espectáculo, o staff também pode registar votos da plateia e do bar, sempre com o mesmo valor.',
       },
     ],
   },
@@ -36,7 +36,7 @@ const pages = {
     blocks: [
       {
         title: 'Voto pago',
-        text: 'Cada voto custa 50 MT. O pagamento é confirmado antes de o voto ser gravado. Um pagamento corresponde a um voto para o participante escolhido.',
+        text: 'Cada voto custa 30 MT. O pagamento é confirmado antes de o voto ser gravado. Um pagamento corresponde a um voto para o participante escolhido.',
       },
       {
         title: 'Quando é possível votar',
@@ -109,14 +109,14 @@ const current = computed(() => pages[props.page] || pages.sobre)
             <ol>
               <li>Na página inicial, escolha um participante activo.</li>
               <li>Indique o telemóvel usado no pagamento. O nome e o email são opcionais.</li>
-              <li>Aceite os termos e confirme o pagamento de 50 MT.</li>
+              <li>Aceite os termos e confirme o pagamento de 30 MT.</li>
               <li>O voto fica registado na gala que estiver aberta.</li>
             </ol>
           </article>
           <article id="faq">
             <h2>Perguntas frequentes</h2>
             <h3>Quanto custa um voto?</h3>
-            <p>50 meticais. Para votar mais do que uma vez, cada voto é pago em separado.</p>
+            <p>30 meticais. Para votar mais do que uma vez, cada voto é pago em separado.</p>
             <h3>Posso votar a qualquer hora?</h3>
             <p>Só enquanto a organização mantiver a votação da gala aberta.</p>
             <h3>Onde vejo o que já aconteceu?</h3>

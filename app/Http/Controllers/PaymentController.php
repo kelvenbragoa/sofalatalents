@@ -139,7 +139,7 @@ class PaymentController extends Controller
 
             // dd($phone, $ref);
             $c2b = $transactionmpesa->c2b(
-                    50, //valor a cobrar do cliente
+                    30, //valor a cobrar do cliente
                     // 1, //valor a cobrar do cliente
                     $phone, // número de telefone do cliente vodacom com mpesa registrado
                     $ref, //referencia do pagamento
@@ -147,7 +147,7 @@ class PaymentController extends Controller
                 );
 
             // $c2b = $transactionmpesa->c2b(
-            //         50, //valor a cobrar do cliente
+            //         30, //valor a cobrar do cliente
             //         // 1, //valor a cobrar do cliente
             //         $phone, // número de telefone do cliente vodacom com mpesa registrado
             //         $ref, //referencia do pagamento

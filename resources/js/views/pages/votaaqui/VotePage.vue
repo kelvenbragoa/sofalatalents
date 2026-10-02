@@ -4,7 +4,7 @@
         <div class="container">
           <p class="st-kicker">Votação</p>
           <h1>O seu voto</h1>
-          <p>Cada voto custa 50 meticais e fica no participante que escolher.</p>
+          <p>Cada voto custa 30 meticais e fica no participante que escolher.</p>
         </div>
       </section>
 
@@ -44,7 +44,7 @@
                     <div class="event-details">
                       <div class="event-meta">
                         <span><i class="bi bi-geo-alt"></i> Beira, Sofala</span>
-                        <span><i class="bi bi-cash"></i> 50 MT por voto</span>
+                        <span><i class="bi bi-cash"></i> 30 MT por voto</span>
                         <span v-if="episode && episode.voting_end"><i class="bi bi-clock"></i> Até {{ formatWhen(episode.voting_end) }}</span>
                       </div>
                     </div>
@@ -161,7 +161,7 @@
 
                     <!-- Payment and Voting Info -->
                     <div class="payment-info">
-                      <div class="tax-note">*Voto com pagamento de 50 MT via carteira móvel</div>
+                      <div class="tax-note">*Voto com pagamento de 30 MT via carteira móvel</div>
                       <small class="text-muted">O seu voto será contabilizado apenas após confirmação do pagamento.</small>
                     </div>
 
@@ -195,7 +195,7 @@
                     <!-- Status Messages -->
                     <div v-if="processingPayment" class="loading">
                       <i class="bi bi-credit-card me-2"></i>
-                      Processando pagamento de 50 MT...
+                      Processando pagamento de 30 MT...
                     </div>
                     <div v-else-if="paymentSuccess && submitting" class="loading">
                       <i class="bi bi-check-circle me-2"></i>
@@ -234,7 +234,7 @@
                         <span v-if="processingPayment">Processando Pagamento...</span>
                         <span v-else-if="paymentSuccess">Registrando Voto...</span>
                         <span v-else-if="submitting">Enviando...</span>
-                        <span v-else>Pagar 50 MT e Votar</span>
+                        <span v-else>Pagar 30 MT e Votar</span>
                       </button>
                       
                       <!-- Debug info -->
@@ -404,10 +404,10 @@ const submitVote = async () => {
     
     // Etapa 1: Processar pagamento via carteira móvel
     processingPayment.value = true
-    submitError.value = 'Processando pagamento de 50 MT...'
+    submitError.value = 'Processando pagamento de 30 MT...'
     
     const paymentData = {
-      amount: 50.00,
+      amount: 30.00,
       phone: voteForm.value.phone, // Adicionar prefixo +258
       description: `Voto para ${participant.value.stage_name || participant.value.name}`,
       reference: `VOTE_${participant.value.id}`
@@ -433,7 +433,7 @@ const submitVote = async () => {
       voter_phone: voteForm.value.phone,
       newsletter_subscription: voteForm.value.newsletter,
       payment_reference: paymentResponse.data.reference,
-      payment_amount: 50.00,
+      payment_amount: 30.00,
       payment_phone: voteForm.value.phone
     }
     
@@ -449,7 +449,7 @@ const submitVote = async () => {
       voter_name: `${voteForm.value.firstName} ${voteForm.value.lastName}`,
       voter_email: voteForm.value.email,
       voter_phone: `+258${voteForm.value.phone}`,
-      payment_amount: 50.00,
+      payment_amount: 30.00,
       payment_reference: paymentResponse.data.reference,
       voted_at: new Date().toISOString()
     }))

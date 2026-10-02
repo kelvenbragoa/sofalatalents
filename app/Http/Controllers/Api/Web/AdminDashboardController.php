@@ -85,7 +85,7 @@ class AdminDashboardController extends Controller
 
     private function amountExpression(): string
     {
-        return 'COALESCE(payment_amount, vote_quantity * COALESCE(unit_price, 50))';
+        return 'COALESCE(payment_amount, vote_quantity * COALESCE(unit_price, 30))';
     }
 
     private function methods(?Episode $episode): array
@@ -162,7 +162,7 @@ class AdminDashboardController extends Controller
                     'participant' => $participant?->stage_name ?: $participant?->name,
                     'voter_name' => $vote->voter_name,
                     'quantity' => (int) $vote->vote_quantity,
-                    'amount' => round((float) ($vote->payment_amount ?? ((int) $vote->vote_quantity * (float) ($vote->unit_price ?? 50))), 2),
+                    'amount' => round((float) ($vote->payment_amount ?? ((int) $vote->vote_quantity * (float) ($vote->unit_price ?? 30))), 2),
                     'method' => $vote->vote_method ?: 'site',
                     'staff_name' => $vote->staff?->name,
                     'receipt_number' => $vote->receipt_number,

@@ -14,7 +14,7 @@ return new class extends Migration
     {
         Schema::table('public_votes', function (Blueprint $table) {
             $table->unsignedInteger('vote_quantity')->default(1)->after('vote_value');
-            $table->decimal('unit_price', 10, 2)->default(50)->after('vote_quantity');
+            $table->decimal('unit_price', 10, 2)->default(30)->after('vote_quantity');
             $table->string('voter_name')->nullable()->after('unit_price');
             $table->string('receipt_number', 40)->nullable()->after('voter_name');
             $table->unsignedBigInteger('staff_user_id')->nullable()->after('receipt_number');

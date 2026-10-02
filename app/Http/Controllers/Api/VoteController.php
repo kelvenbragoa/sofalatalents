@@ -161,7 +161,7 @@ class VoteController extends Controller
             }
 
             // Verificar se o pagamento foi processado (validação adicional)
-            if ($request->payment_amount < 50.00) {
+            if ($request->payment_amount < 30.00) {
                 return response()->json([
                     'success' => false,
                     'message' => 'Valor de pagamento insuficiente'

@@ -97,7 +97,7 @@ const year = computed(() => new Date().getFullYear())
             <h2>Como votar</h2>
             <ol>
               <li>Escolha o participante activo.</li>
-              <li>Pague 50 MT por cada voto.</li>
+              <li>Pague 30 MT por cada voto.</li>
               <li>Confirme os dados do pagamento.</li>
               <li>Acompanhe episódios e eliminações.</li>
             </ol>

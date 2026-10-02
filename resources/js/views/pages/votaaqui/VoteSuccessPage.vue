@@ -109,7 +109,7 @@ const shareVote = () => {
                     </div>
                     <div class="detail-item">
                       <i class="bi bi-credit-card-fill"></i>
-                      <span>Pagamento: {{ voteData?.payment_amount || '50' }} MT confirmado</span>
+                      <span>Pagamento: {{ voteData?.payment_amount || '30' }} MT confirmado</span>
                     </div>
                     <div class="detail-item" v-if="voteData?.payment_reference">
                       <i class="bi bi-receipt"></i>

@@ -35,7 +35,7 @@ onMounted(fetchParticipants)
       <div class="container">
         <p class="st-kicker">Reality show</p>
         <h1>Sofala Talents</h1>
-        <p>Vote no participante da gala. Cada voto custa 50 meticais e conta para quem continua em competição.</p>
+        <p>Vote no participante da gala. Cada voto custa 30 meticais e conta para quem continua em competição.</p>
       </div>
     </section>
 
@@ -85,7 +85,7 @@ onMounted(fetchParticipants)
                   :to="{ name: 'votar', params: { id: participant.id } }"
                   class="profile-btn"
                 >
-                  Votar · 50 MT
+                  Votar · 30 MT
                 </router-link>
               </div>
             </article>
