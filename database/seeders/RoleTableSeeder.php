@@ -30,6 +30,11 @@ class RoleTableSeeder extends Seeder
                 "created_at"=>now(),
                 "updated_at"=>now(),
             ],
+            [
+                "name"=>"Staff",
+                "created_at"=>now(),
+                "updated_at"=>now(),
+            ],
         ]);
     }
 }

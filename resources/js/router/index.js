@@ -14,6 +14,15 @@ import { createRouter, createWebHistory } from 'vue-router';
 
 const router = createRouter({
     history: createWebHistory(),
+    scrollBehavior(to, from, savedPosition) {
+        if (savedPosition) {
+            return savedPosition;
+        }
+        if (to.hash) {
+            return { el: to.hash, top: 90, behavior: 'smooth' };
+        }
+        return { top: 0 };
+    },
     routes: [
         // VotaAqui Routes - Homepage principal
         {
@@ -44,6 +53,30 @@ const router = createRouter({
                     path: 'episodios',
                     name: 'episodios',
                     component: () => import('@/views/pages/votaaqui/EpisodesPage.vue')
+                },
+                {
+                    path: 'sobre',
+                    name: 'sobre',
+                    component: () => import('@/views/pages/votaaqui/SiteInfoPage.vue'),
+                    props: { page: 'sobre' }
+                },
+                {
+                    path: 'termos',
+                    name: 'termos',
+                    component: () => import('@/views/pages/votaaqui/SiteInfoPage.vue'),
+                    props: { page: 'termos' }
+                },
+                {
+                    path: 'privacidade',
+                    name: 'privacidade',
+                    component: () => import('@/views/pages/votaaqui/SiteInfoPage.vue'),
+                    props: { page: 'privacidade' }
+                },
+                {
+                    path: 'ajuda',
+                    name: 'ajuda',
+                    component: () => import('@/views/pages/votaaqui/SiteInfoPage.vue'),
+                    props: { page: 'ajuda' }
                 }
             ]
         },
@@ -81,6 +114,30 @@ const router = createRouter({
                     path: 'episodios',
                     name: 'votaaqui.episodios',
                     component: () => import('@/views/pages/votaaqui/EpisodesPage.vue')
+                },
+                {
+                    path: 'sobre',
+                    name: 'votaaqui.sobre',
+                    component: () => import('@/views/pages/votaaqui/SiteInfoPage.vue'),
+                    props: { page: 'sobre' }
+                },
+                {
+                    path: 'termos',
+                    name: 'votaaqui.termos',
+                    component: () => import('@/views/pages/votaaqui/SiteInfoPage.vue'),
+                    props: { page: 'termos' }
+                },
+                {
+                    path: 'privacidade',
+                    name: 'votaaqui.privacidade',
+                    component: () => import('@/views/pages/votaaqui/SiteInfoPage.vue'),
+                    props: { page: 'privacidade' }
+                },
+                {
+                    path: 'ajuda',
+                    name: 'votaaqui.ajuda',
+                    component: () => import('@/views/pages/votaaqui/SiteInfoPage.vue'),
+                    props: { page: 'ajuda' }
                 }
             ]
         },

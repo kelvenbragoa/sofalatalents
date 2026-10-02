@@ -148,8 +148,8 @@ class Episode extends Model
                 continue;
             }
 
-            // Count public votes for this participation
-            $publicCount = PublicVote::where('participation_id', $participation->id)->count();
+            // Soma a quantidade: um recibo do staff pode representar vários votos.
+            $publicCount = (int) PublicVote::where('participation_id', $participation->id)->sum('vote_quantity');
 
             // Get judge votes for this participation
             $judgeVotes = JudgeVote::where('participation_id', $participation->id)->get();

@@ -7,6 +7,9 @@ use App\Http\Controllers\Api\ParticipantController;
 use App\Http\Controllers\Api\VoteController;
 use App\Http\Controllers\Api\EpisodeController;
 use App\Http\Controllers\Api\EliminationController;
+use App\Http\Controllers\Api\Staff\StaffAuthController;
+use App\Http\Controllers\Api\Staff\StaffVoteController;
+use App\Http\Controllers\Api\Web\AdminDashboardController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Middleware\Sanctum;
 use Illuminate\Http\Request;
@@ -17,6 +20,7 @@ Route::get('/user', function (Request $request) {
 })->middleware('auth:sanctum');
 
 Route::post('login',[AuthWebController::class,'login']);
+Route::post('staff/login',[StaffAuthController::class,'login']);
 
 Route::middleware([Sanctum::class])->group(function () {
     
@@ -28,6 +32,8 @@ Route::middleware([Sanctum::class])->group(function () {
 
 // Admin Routes - Protected (authentication required)
 Route::middleware([Sanctum::class])->prefix('web')->group(function () {
+    Route::get('dashboard', AdminDashboardController::class);
+
     // Participants CRUD (admin only)
     Route::resource('participants', AdminParticipantController::class);
     Route::post('participants/{participant}/toggle-status', [AdminParticipantController::class, 'toggleStatus']);
@@ -48,6 +54,14 @@ Route::middleware([Sanctum::class])->prefix('web')->group(function () {
     Route::get('episodes/{episode}/simulate', [EliminationController::class, 'simulate']);
 
     Route::post('judgevotes', [VoteController::class, 'storejudge']);
+});
+
+Route::middleware([Sanctum::class])->prefix('staff')->group(function () {
+    Route::get('me', [StaffAuthController::class, 'me']);
+    Route::post('logout', [StaffAuthController::class, 'logout']);
+    Route::get('participants', [StaffVoteController::class, 'participants']);
+    Route::get('votes', [StaffVoteController::class, 'index']);
+    Route::post('votes', [StaffVoteController::class, 'store']);
 });
 
 // VotaAqui Routes - Public routes (no authentication required)

@@ -136,8 +136,8 @@ class EpisodeController extends Controller
             'total_participants' => Participant::count(),
             'active_participants' => Participant::where('active', true)->count(),
             'eliminated_participants' => Participant::where('active', false)->count(),
-            'total_public_votes' => \App\Models\PublicVote::count(),
-            'votes_this_week' => \App\Models\PublicVote::where('created_at', '>=', now()->startOfWeek())->count(),
+            'total_public_votes' => (int) \App\Models\PublicVote::sum('vote_quantity'),
+            'votes_this_week' => (int) \App\Models\PublicVote::where('created_at', '>=', now()->startOfWeek())->sum('vote_quantity'),
             'current_episode' => Episode::live()->first()?->episode_number,
             'next_air_date' => Episode::where('status', 'scheduled')
                 ->where('air_date', '>', now())

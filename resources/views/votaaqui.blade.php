@@ -8,8 +8,8 @@
     <meta name="keywords" content="votação, reality show, Sofala Talents, participantes, voto online">
 
     <!-- Favicons -->
-    <link href="{{asset('votaaqui/assets/img/favicon.png')}}" rel="icon">
-    <link href="{{asset('votaaqui/assets/img/apple-touch-icon.png')}}" rel="apple-touch-icon">
+    <link href="{{ asset('votaaqui/assets/img/logo.png') }}" rel="icon" type="image/png">
+    <link href="{{ asset('votaaqui/assets/img/logo.png') }}" rel="apple-touch-icon">
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com" rel="preconnect">
@@ -31,17 +31,7 @@
     <!-- Vite Assets -->
     @vite(['resources/css/app.css', 'resources/css/votaaqui.css', 'resources/js/app.js'])
 </head>
-<body class="speakers-page">
+<body class="speakers-page" style="--st-hero-image: url('{{ asset('votaaqui/assets/img/events/karaoke.png') }}')">
     <div id="app"></div>
-
-    <!-- Bootstrap JS -->
-    <script src="{{asset('votaaqui/assets/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
-    <script src="{{asset('votaaqui/assets/vendor/php-email-form/validate.js')}}"></script>
-    <script src="{{asset('votaaqui/assets/vendor/purecounter/purecounter_vanilla.js')}}"></script>
-    <script src="{{asset('votaaqui/assets/vendor/swiper/swiper-bundle.min.js')}}"></script>
-    <script src="{{asset('votaaqui/assets/vendor/glightbox/js/glightbox.min.js')}}"></script>
-
-    <!-- Main JS File -->
-    <script src="{{asset('votaaqui/assets/js/main.js')}}"></script>
 </body>
 </html>

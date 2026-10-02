@@ -28,7 +28,8 @@ class EpisodeController extends Controller
             ->when(request('status'), function($query, $status) {
                 $query->where('status', $status);
             })
-            ->withCount(['participants', 'eliminatedParticipants', 'publicVotes', 'judgeVotes'])
+            ->withCount(['participants', 'eliminatedParticipants', 'judgeVotes'])
+            ->withSum('publicVotes as public_votes_count', 'vote_quantity')
             ->orderBy('episode_number', 'desc')
             ->paginate();
 
@@ -119,7 +120,8 @@ class EpisodeController extends Controller
             'publicVotes',
             'judgeVotes'
         ])
-        ->withCount(['participants', 'eliminatedParticipants', 'publicVotes', 'judgeVotes'])
+        ->withCount(['participants', 'eliminatedParticipants', 'judgeVotes'])
+            ->withSum('publicVotes as public_votes_count', 'vote_quantity')
         ->find($id);
 
         if (!$episode) {
@@ -235,7 +237,7 @@ class EpisodeController extends Controller
      */
     public function destroy(string $id)
     {
-        $episode = Episode::withCount(['publicVotes', 'judgeVotes'])->find($id);
+        $episode = Episode::withCount(['judgeVotes'])->withSum('publicVotes as public_votes_count', 'vote_quantity')->find($id);
         
         if (!$episode) {
             return response()->json([

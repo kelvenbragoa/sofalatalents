@@ -1,23 +1,12 @@
 <template>
-  <div id="app">
-    <main class="main">
-      <!-- Page Title -->
-      <!-- <div class="page-title dark-background" style="background-image: url('/votaaqui/assets/img/events/karaoke.png')"> -->
-      <div 
-        class="page-title dark-background" 
-        style="background-image: url('/votaaqui/assets/img/events/karaoke.png'); background-size: cover; background-repeat: no-repeat; background-position: center;"
-      >
-        <div class="container position-relative">
-          <h1 style="color: white;">Vote no seu participante</h1>
-          <p>Complete os dados para confirmar o seu voto.</p>
-          <nav class="breadcrumbs">
-            <ol>
-              <li><router-link to="/">Home</router-link></li>
-              <li class="current">Seu voto</li>
-            </ol>
-          </nav>
+  <PublicShell>
+      <section class="st-hero">
+        <div class="container">
+          <p class="st-kicker">Votação</p>
+          <h1>O seu voto</h1>
+          <p>Cada voto custa 50 meticais e fica no participante que escolher.</p>
         </div>
-      </div>
+      </section>
 
       <!-- Vote Form Section -->
       <section id="vote-form" class="buy-tickets section">
@@ -54,9 +43,9 @@
                     <h4 v-else>Nenhuma gala disponivel</h4>
                     <div class="event-details">
                       <div class="event-meta">
-                        <span><i class="bi bi-calendar-event"></i> Setembro 2025</span>
-                        <span><i class="bi bi-geo-alt"></i> Moçambique</span>
-                        <span><i class="bi bi-clock"></i> Votação 24h</span>
+                        <span><i class="bi bi-geo-alt"></i> Beira, Sofala</span>
+                        <span><i class="bi bi-cash"></i> 50 MT por voto</span>
+                        <span v-if="episode && episode.voting_end"><i class="bi bi-clock"></i> Até {{ formatWhen(episode.voting_end) }}</span>
                       </div>
                     </div>
                   </div>
@@ -186,8 +175,8 @@
                         :disabled="submitting"
                       >
                       <label for="terms">
-                        Concordo com os <a href="#" target="_blank">Termos e Condições</a> 
-                        e <a href="#" target="_blank">Política de Privacidade</a> *
+                        Concordo com os <router-link to="/termos" target="_blank">Termos e Condições</router-link> 
+                        e a <router-link to="/privacidade" target="_blank">Política de Privacidade</router-link> *
                       </label>
                     </div>
 
@@ -271,14 +260,14 @@
           </div>
         </div>
       </section>
-    </main>
-  </div>
+  </PublicShell>
 </template>
 
 <script setup>
 import { ref, onMounted } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import axios from 'axios'
+import PublicShell from '@/components/votaaqui/PublicShell.vue'
 
 const route = useRoute()
 const router = useRouter()
@@ -492,6 +481,16 @@ const handleImageError = (event) => {
   event.target.src = '/votaaqui/assets/img/events/gate1.jpeg'
 }
 
+const formatWhen = (dateString) => {
+  if (!dateString) return ''
+  return new Date(dateString).toLocaleString('pt-PT', {
+    day: 'numeric',
+    month: 'long',
+    hour: '2-digit',
+    minute: '2-digit'
+  })
+}
+
 // Format phone number - only allow numbers
 const formatPhoneNumber = (event) => {
   let value = event.target.value
@@ -515,287 +514,3 @@ onMounted(() => {
 })
 </script>
 
-<style scoped>
-/* Vote Form Styles */
-.ticket-form-wrapper {
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
-  padding: 40px;
-  margin-bottom: 40px;
-}
-
-.event-info {
-  text-align: center;
-  border-bottom: 1px solid #eee;
-  padding-bottom: 30px;
-}
-
-.event-info h3 {
-  color: var(--heading-color);
-  font-size: 2rem;
-  margin-bottom: 15px;
-}
-
-.event-meta {
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-  flex-wrap: wrap;
-}
-
-.event-meta span {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  color: var(--default-color);
-  font-weight: 500;
-}
-
-.event-meta i {
-  color: var(--accent-color);
-}
-
-/* Participant Card */
-.ticket-types {
-  margin-bottom: 30px;
-}
-
-.ticket-types h4 {
-  color: var(--heading-color);
-  margin-bottom: 20px;
-  font-size: 1.5rem;
-}
-
-.ticket-option {
-  border: 2px solid #e9ecef;
-  border-radius: 10px;
-  padding: 20px;
-  transition: all 0.3s ease;
-}
-
-.ticket-option.selected {
-  border-color: var(--accent-color);
-  background-color: rgba(231, 76, 60, 0.05);
-}
-
-.participant-card {
-  display: flex;
-  gap: 20px;
-  align-items: center;
-}
-
-.participant-image {
-  flex-shrink: 0;
-}
-
-.participant-image img {
-  width: 100px;
-  height: 100px;
-  object-fit: cover;
-  border-radius: 50%;
-  border: 3px solid var(--accent-color);
-}
-
-.participant-info h5 {
-  color: var(--heading-color);
-  margin-bottom: 10px;
-  font-size: 1.4rem;
-}
-
-.participant-bio {
-  color: var(--default-color);
-  margin-bottom: 15px;
-  line-height: 1.6;
-}
-
-.participant-details {
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-
-.participant-details span {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  color: var(--default-color);
-  font-size: 0.9rem;
-}
-
-.participant-details i {
-  color: var(--accent-color);
-}
-
-/* Form Styles */
-.ticket-form {
-  margin-top: 30px;
-}
-
-.form-group {
-  margin-bottom: 20px;
-}
-
-.form-group label {
-  display: block;
-  margin-bottom: 8px;
-  color: var(--heading-color);
-  font-weight: 600;
-}
-
-.form-control {
-  width: 100%;
-  padding: 12px 15px;
-  border: 2px solid #e9ecef;
-  border-radius: 8px;
-  font-size: 1rem;
-  transition: border-color 0.3s ease;
-}
-
-.form-control:focus {
-  outline: none;
-  border-color: var(--accent-color);
-  box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.1);
-}
-
-.form-control:disabled {
-  background-color: #f8f9fa;
-  opacity: 0.8;
-}
-
-/* Payment Info */
-.payment-info {
-  background: rgba(231, 76, 60, 0.1);
-  border: 1px solid rgba(231, 76, 60, 0.3);
-  border-radius: 8px;
-  padding: 15px;
-  margin: 20px 0;
-  text-align: center;
-}
-
-.tax-note {
-  color: var(--accent-color);
-  font-weight: 600;
-  margin-bottom: 5px;
-}
-
-/* Checkboxes */
-.terms-checkbox,
-.newsletter-checkbox {
-  margin: 20px 0;
-}
-
-.terms-checkbox input,
-.newsletter-checkbox input {
-  margin-right: 10px;
-}
-
-.terms-checkbox label,
-.newsletter-checkbox label {
-  display: flex;
-  align-items: center;
-  color: var(--default-color);
-  font-weight: normal;
-  cursor: pointer;
-}
-
-.terms-checkbox a {
-  color: var(--accent-color);
-  text-decoration: none;
-}
-
-.terms-checkbox a:hover {
-  text-decoration: underline;
-}
-
-/* Status Messages */
-.loading {
-  background-color: #d1ecf1;
-  border: 1px solid #bee5eb;
-  color: #0c5460;
-  padding: 15px;
-  border-radius: 8px;
-  margin: 15px 0;
-  display: flex;
-  align-items: center;
-}
-
-.error-message {
-  background-color: #f8d7da;
-  border: 1px solid #f5c6cb;
-  color: #721c24;
-  padding: 15px;
-  border-radius: 8px;
-  margin: 15px 0;
-  display: flex;
-  align-items: center;
-}
-
-.sent-message {
-  background-color: #d4edda;
-  border: 1px solid #c3e6cb;
-  color: #155724;
-  padding: 15px;
-  border-radius: 8px;
-  margin: 15px 0;
-  display: flex;
-  align-items: center;
-}
-
-/* Submit Button */
-.form-submit {
-  text-align: center;
-  margin-top: 30px;
-}
-
-.btn-submit {
-  background: linear-gradient(45deg, var(--accent-color), #e74c3c);
-  color: white;
-  border: none;
-  padding: 15px 40px;
-  font-size: 1.1rem;
-  font-weight: 600;
-  border-radius: 50px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 250px;
-}
-
-.btn-submit:hover:not(:disabled) {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(231, 76, 60, 0.3);
-}
-
-.btn-submit:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
-  transform: none;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .ticket-form-wrapper {
-    padding: 20px;
-  }
-  
-  .event-meta {
-    gap: 15px;
-  }
-  
-  .participant-card {
-    flex-direction: column;
-    text-align: center;
-  }
-  
-  .participant-details {
-    justify-content: center;
-  }
-  
-  .btn-submit {
-    min-width: 100%;
-  }
-}
-</style>

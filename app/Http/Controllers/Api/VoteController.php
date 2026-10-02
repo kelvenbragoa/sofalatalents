@@ -198,6 +198,8 @@ class VoteController extends Controller
                 'voter_identifier' => $voterIp,
                 'used_code' => $participant->voting_code,
                 'vote_value' => $request->payment_amount, // Usar valor do pagamento
+                'vote_quantity' => 1,
+                'unit_price' => $request->payment_amount,
                 'country' => 'MZ',
                 'validated' => true,
                 'ip_address' => $voterIp,
@@ -261,7 +263,7 @@ class VoteController extends Controller
                 ->join('episodes', 'participations.episode_id', '=', 'episodes.id')
                 ->select('participants.id', 'participants.name', 'participants.stage_name', 
                         'episodes.title as episode_title', 'episodes.episode_number',
-                        DB::raw('COUNT(public_votes.id) as vote_count'))
+                        DB::raw('SUM(public_votes.vote_quantity) as vote_count'))
                 ->where('participants.active', true)
                 ->whereNull('participants.eliminated_episode_id')
                 ->where('episodes.voting_open', true)
@@ -325,7 +327,7 @@ class VoteController extends Controller
             $recentVotes = collect();
 
             if ($participation) {
-                $voteCount = PublicVote::where('participation_id', $participation->id)->count();
+                $voteCount = (int) PublicVote::where('participation_id', $participation->id)->sum('vote_quantity');
                 
                 $recentVotes = PublicVote::where('participation_id', $participation->id)
                     ->orderBy('created_at', 'desc')

@@ -31,6 +31,23 @@ Route::get('/homepage', function () {
     return view('votaaqui');
 });
 
+foreach ([
+    'episodios',
+    'eliminacoes',
+    'voto-sucesso',
+    'sobre',
+    'termos',
+    'privacidade',
+    'ajuda',
+] as $page) {
+    Route::get('/'.$page, function () {
+        return view('votaaqui');
+    });
+}
+
+Route::redirect('/proximos-eventos', '/episodios');
+Route::redirect('/resultados', '/eliminacoes');
+
 // Legacy homepage (Blade version) - mantida para referência
 Route::get('/homepage-blade', function () {
     return view('homepage');

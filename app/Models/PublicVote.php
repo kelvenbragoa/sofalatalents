@@ -13,6 +13,11 @@ class PublicVote extends Model
         'voter_identifier',
         'used_code',
         'vote_value',
+        'vote_quantity',
+        'unit_price',
+        'voter_name',
+        'receipt_number',
+        'staff_user_id',
         'operator',
         'country',
         'validated',
@@ -29,6 +34,8 @@ class PublicVote extends Model
         'voted_at' => 'datetime',
         'validated' => 'boolean',
         'vote_value' => 'decimal:2',
+        'vote_quantity' => 'integer',
+        'unit_price' => 'decimal:2',
         'payment_amount' => 'decimal:2',
     ];
 
@@ -38,6 +45,11 @@ class PublicVote extends Model
     public function participation(): BelongsTo
     {
         return $this->belongsTo(Participation::class);
+    }
+
+    public function staff(): BelongsTo
+    {
+        return $this->belongsTo(User::class, 'staff_user_id');
     }
 
     /**
